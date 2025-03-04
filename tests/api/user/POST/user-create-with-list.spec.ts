@@ -34,7 +34,6 @@ test.describe.serial("POST /user/createWithList API Tests", () => {
 
             expect(response.ok()).toBeTruthy();
             expect(response.status()).toBe(200);
-            console.log("Create Multiple Users Response:", await response.json());
         });
     });
 
@@ -47,7 +46,6 @@ test.describe.serial("POST /user/createWithList API Tests", () => {
             });
 
             expect(response.status()).not.toBe(200);
-            console.log("Empty List Response:", await response.json());
         });
     });
 
@@ -68,7 +66,6 @@ test.describe.serial("POST /user/createWithList API Tests", () => {
             });
 
             expect(response.status()).not.toBe(200);
-            console.log("Invalid User Data Response:", await response.json());
         });
     });
 

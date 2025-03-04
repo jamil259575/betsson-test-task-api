@@ -20,4 +20,12 @@ test.describe('GET /pet/findByStatus API Tests', () => {
         expect(Array.isArray(pets)).toBeTruthy();
         expect(pets.length).toBe(0);
     });
+
+    test('should return an empty array for a wrong status input', async ({ apiFixture }) => {
+        const response = await apiFixture.get('pet/findByStatus?status=5');
+        expect(response.status()).toBe(200);
+        const pets = await response.json();
+        expect(Array.isArray(pets)).toBeTruthy();
+        expect(pets.length).toBe(0);
+    });
 });

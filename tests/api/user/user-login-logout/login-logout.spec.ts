@@ -10,7 +10,7 @@ test.describe.serial("User Login & Logout API Tests", () => {
             const responseLogin = await apiFixture.get(`user/login`, {
                 params: {
                     username: createdUser.username,
-                    password: "playwright@123", // Password from fixture
+                    password: "playwright@123",
                 },
             });
             expect(responseLogin.ok()).toBeTruthy();
@@ -30,5 +30,4 @@ test.describe.serial("User Login & Logout API Tests", () => {
             expect(responseLogout.status()).toBe(200);
         });
     });
-
 });

@@ -71,10 +71,3 @@ This project is configured to run tests in **GitHub Actions**. The workflow file
 ## Reporting
 - **Test Results:** Located in `test-results/`
 - **HTML Reports:** After running tests, reports are stored in `playwright-report/`
-
-
-## Contribution
-Feel free to contribute by adding new test cases or improving the framework.
-
-## License
-This project is licensed under MIT.

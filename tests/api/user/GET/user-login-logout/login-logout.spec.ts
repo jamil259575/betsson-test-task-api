@@ -1,5 +1,7 @@
-import { test } from "../../fixtures/user-fixture";
+import { test } from "../../../fixtures/user-fixture";
 import { expect } from "@playwright/test";
+import {user} from "../../../../../paths/user/main-url";
+import {login, logout} from "../../../../../paths/user/GET/login-logout";
 
 test.describe.serial("User Login & Logout API Tests", () => {
 
@@ -7,7 +9,7 @@ test.describe.serial("User Login & Logout API Tests", () => {
         let responseData;
 
         await test.step("Send GET request to log in the user", async () => {
-            const responseLogin = await apiFixture.get(`user/login`, {
+            const responseLogin = await apiFixture.get(`${user}/${login}`, {
                 params: {
                     username: createdUser.username,
                     password: "playwright@123",
@@ -25,7 +27,7 @@ test.describe.serial("User Login & Logout API Tests", () => {
 
     test("Should log out user successfully", async ({ apiFixture }) => {
         await test.step("Send GET request to log out", async () => {
-            const responseLogout = await apiFixture.get(`user/logout`);
+            const responseLogout = await apiFixture.get(`${user}/${logout}`);
             expect(responseLogout.ok()).toBeTruthy();
             expect(responseLogout.status()).toBe(200);
         });
